@@ -1,0 +1,26 @@
+Basic formaula to decode binary to decimal
+
+this is a 8 byte binary file
+
+10101010
+
+if we convert this to decimal
+10101010 = 42
+
+but how do we know what the decimal value of this binary file is?
+we can use the following formula to convert binary to decimal
+
+binary = 2 ^ (number of bits in binary) * decimal
+
+so for the above binary file byte from the left
+0*2 pow 0 = 0
+1*2 pow 1 = 2
+0*2 pow 2 = 0
+1*2 pow 3 = 8
+0*2 pow 4 = 0
+1*2 pow 5 = 32
+0*2 pow 6 = 0
+1*2 pow 7 = 128
+
+so the decimal value of the above binary file is
+0 + 2 + 0 + 8 + 0 + 32 + 0 + 128 = 42
