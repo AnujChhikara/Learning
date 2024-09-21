@@ -1,4 +1,4 @@
-Basic formaula to decode binary to decimal
+--//Basic formaula to decode binary to decimal
 
 this is a 8 byte binary file
 
@@ -24,3 +24,32 @@ so for the above binary file byte from the left
 
 so the decimal value of the above binary file is
 0 + 2 + 0 + 8 + 0 + 32 + 0 + 128 = 42
+
+
+ASCII,
+stands for American Standard Code for Information Interchange. It is a 7-bit character code where each individual bit represents a unique character.
+
+for exmple word Hello is represented as
+H = 01001000
+e = 01100101
+l = 01101100
+l = 01101100
+o = 01101111
+
+ASCII code for each character is
+H = 72
+e = 101
+l = 108
+l = 108 
+o = 111 
+
+
+Unicode
+Unicode is a character encoding standard designed to support all characters from all writing systems, as well as symbols, emoji, etc.
+
+Unicode assigns each character a unique code point (a numeric value) but uses different encoding formats to store these code points as binary data:
+
+UTF-8: A variable-length encoding format that uses 1 to 4 bytes to store characters.
+UTF-16: Uses 2 or 4 bytes to store characters.
+UTF-32: Uses 4 bytes for every character.
+For example, the character A in Unicode is represented by the code point U+0041, which corresponds to the decimal value 65 (the same as in ASCII).
