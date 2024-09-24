@@ -1,0 +1,13 @@
+Statefull authentication
+
+when a user logs in , we assign a unique token to the user
+and we store the token in the database
+when the user makes a request we check the token in the database
+if the token is valid we allow the user to make the request
+otherwise we deny the request
+
+methods to do it
+1. cookie
+2. headers
+
+mostly validating is done by a auth middleware

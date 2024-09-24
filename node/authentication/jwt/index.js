@@ -28,5 +28,5 @@ console.log(decode);
 const verify = jwt.verify(token, jwtSecret);
 console.log(verify);
 
-//Important anyone can decode the content of the token if they get you toke
+//Important anyone can decode the content of the token if they get you token
 //jwt secret is only importance is to verify the token without secret it can't be verify
