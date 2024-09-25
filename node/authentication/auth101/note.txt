@@ -11,3 +11,17 @@ methods to do it
 2. headers
 
 mostly validating is done by a auth middleware
+
+***************
+   cookies
+**************
+
+if you have cookies stored in your browser they auto send from frontend with every request you 
+made with the backend
+
+cookies config 
+  - name: sessionId
+  - maxAge: 1000 * 60 * 60 * 24 * 30 // -- this means the cookie will expire after 30 days
+  - httpOnly: true -- this means the cookie will not be accessible from the client side javascript
+  - secure: true -- this means the cookie will only be sent over https
+  - sameSite: 'strict' -- ensures that the cookie is only sent when navigating within the same site/domain and not sent in cross-site requests.
