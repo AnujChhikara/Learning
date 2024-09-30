@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Socket.IO chat</title>
+    
+  </head>
+  <body>
+
+     <input type="Enter message here" name="message" id="message">
+     <button id="sendBtn">Send</button>
+
+     <ul>
+        Chats
+        <li></li>
+     </ul>
+ 
+
+  </body>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+
+    const socket = io();
+    socket.on('connect', () => {
+      console.log('connected');
+    });
+
+    socket.on('chat message', (message)=>{
+        const ul = document.querySelector("ul")
+        const newLi = document.createElement("li")
+       newLi.innerText = message
+        ul.appendChild(newLi)
+    })
+
+    const sendBtn = document.getElementById('sendBtn');
+    sendBtn.addEventListener('click', () => {
+      const message = document.getElementById('message').value;
+      socket.emit('chat message', message);
+      document.getElementById('message').value = '';
+    });
+
+    // const createConnection = () => {
+    //   const socket = io();
+    //   socket.on('connect', () => {
+    //     console.log('connected');
+    //   });
+    //   socket.on('disconnect', () => {
+    //     console.log('disconnected');
+    //   });
+    // }
+  </script>
+</html>
