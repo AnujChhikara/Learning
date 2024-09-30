@@ -8,7 +8,10 @@ const user = {
 };
 
 //creating token
-const token = jwt.sign(user, jwtSecret);
+const token = jwt.sign(
+  "6e95b06ffe0745e8637ac25e76a93acab608613615c3e440a344150c1ea3c8bf",
+  jwtSecret
+);
 
 console.log(token);
 
