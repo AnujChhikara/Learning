@@ -1,4 +1,6 @@
 "use client";
+
+import HomeComponent from "@/components/HomePage";
 import { useEffect, useState } from "react";
 import io from "socket.io-client";
 
@@ -31,7 +33,15 @@ export default function Home() {
 
   return (
     <div>
-      <h1>Socket.io Chat Example</h1>
+      <HomeComponent/>
+      <div className="bg-red-400 w-[100vw] h-[100vh] flex justify-center items-center">
+        second page
+      </div>
+      <div className="bg-green-400 w-[100vw] h-[100vh] flex justify-center items-center">
+        third page
+      </div>
+
+      {/* <h1>Socket.io Chat Example</h1>
       <input
         type='text'
         value={message}
@@ -44,7 +54,7 @@ export default function Home() {
         {receivedMessage.map((msg, index) => (
           <p key={index}>{msg}</p>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }
