@@ -2,6 +2,7 @@ import app from "./app.js";
 import dotenv from "dotenv";
 import http from "http";
 import { Server } from "socket.io";
+import connectDB from "./db/index.js";
 
 dotenv.config({
   path: "././.env",
@@ -33,6 +34,10 @@ io.on("connection", (socket) => {
   });
 });
 
+
+connectDB().then(() => {
 server.listen(port, () => {
   console.log(`Server is running on port ${port}`);
+})}).catch((err) => {
+  console.error("Error connecting to MongoDB:", err);
 });
