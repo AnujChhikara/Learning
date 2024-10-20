@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block title %}
+    {{blog.title}}
+{% endblock %}
+{% block content %}
+    <div class="flex flex-wrap gap-4 justify-center items-center">
+        
+            <div class="flex flex-col justify-center items-center w-96  gap-4 bg-gray-800 rounded-lg p-4 border-2 border-gray-400">
+               
+                    <h2 class="text-2xl text-center font-bold">{{ blog.title }}</h2>
+                    <img class="rounded-lg w-80" src="{{ blog.image.url }}" alt="{{ blog.title }}">
+                    <h3>{{blog.body}}</h3>
+                    <hr>
+                    <h5 class="text-center">Summary:</h5>
+                    <p class="text-sm text-center">{{blog.summary}}</p>
+                    <hr>
+                    <span>-By {{ blog.author }}</span>
+              
+            </div>
+        
+     
+    </div>
+{% endblock %}
+
