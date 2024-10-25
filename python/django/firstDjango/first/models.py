@@ -2,20 +2,11 @@ from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
 
-# Many to many
-
-class BlogTags(models.Model):
-    tag = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.tag
-
 class Blog(models.Model):
     title=models.CharField(max_length=100)
     image=models.ImageField(upload_to='blog_images/')
     body=models.TextField()
     author = models.CharField(max_length=100, default='Anonymous')
-    tags = models.ManyToManyField(BlogTags, related_name='blogs')  # Add ManyToManyField to Blog
     summary = models.TextField(default='No summary')
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at= models.DateTimeField(auto_now=True)
@@ -34,19 +25,25 @@ class BlogReviews(models.Model):
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at= models.DateTimeField(auto_now=True)
 
-
     def __str__(self):
         return f'{self.user.username} review for {self.blog.title}'
     
+# Many to many
 
-
-# One to One
-
-class BlogAuthorProfile(models.Model):
-    blog = models.OneToOneField(Blog, on_delete=models.CASCADE, related_name="author_profile")
-    bio = models.TextField()  # Detailed biography of the author
-    website = models.URLField(null=True, blank=True)  # Author's personal website
-    social_handle = models.CharField(max_length=100, null=True, blank=True)  # Social media handle
+class BlogTags(models.Model):
+    blog_tags = models.ManyToManyField(Blog, related_name="tags")
+    tag = models.CharField(max_length=20)
 
     def __str__(self):
-        return f"Profile of {self.blog.author}"
+        return self.tag
+    
+# One to One
+
+class BlogCertification(models.Model):
+    blog = models.OneToOneField(Blog, on_delete=models.CASCADE, related_name="certification")
+    certification = models.CharField(max_length=100)
+    created_at=models.DateTimeField(auto_now_add=True)
+    updated_at= models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'Certification for {self.blog.title}'
