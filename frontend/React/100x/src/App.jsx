@@ -128,19 +128,27 @@ import Contact from "./components/Contact";
 import Page404 from "./components/404Page";
 import Footer from "./components/Footer";
 import SignUp from "./components/SignUp";
+import Clock from "./components/Clock";
+import Hooks from "./components/Hooks";
+import CustomHooks from "./components/week11/CustomHooks";
 const Router = () => {
   return (
     <BrowserRouter>
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />}>
-          <Route path='/about' element={<About />} />
-          <Route path='/services' element={<Services />} />
-          <Route path='/contact' element={<Contact />} />
+          <Route path='about' element={<About />} />
+          <Route path='services' element={<Services />} />
+          <Route path='contact' element={<Contact />} />
           <Route path='signup' element={<SignUp />} />
+          <Route path='clock' element={<Clock />} />
           <Route path='*' element={<Page404 />} />
         </Route>
         <Route />
+
+        <Route path='/week11' element={<Hooks />}>
+          <Route path='customHooks' element={<CustomHooks />} />
+        </Route>
       </Routes>
       <Footer />
     </BrowserRouter>

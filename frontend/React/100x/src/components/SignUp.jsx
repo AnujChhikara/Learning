@@ -1,9 +1,11 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
+import { ThemeContext } from "../Layouts/Home";
 
 export default function SignUp() {
   const nameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
+  const { isDark } = useContext(ThemeContext);
 
   const handleSubmittion = () => {
     const name = nameRef.current.value;
@@ -18,6 +20,7 @@ export default function SignUp() {
       <input ref={emailRef} type='text' placeholder='Email' />
       <input ref={passwordRef} type='password' placeholder='Password' />
       <button onClick={handleSubmittion}>Sign Up</button>
+      {isDark ? "Theme is Dark" : "Theme is light"}
     </div>
   );
 }
